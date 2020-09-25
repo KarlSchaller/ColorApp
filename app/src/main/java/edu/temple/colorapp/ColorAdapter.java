@@ -39,8 +39,16 @@ public class ColorAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        TextView textView = new TextView(context);
+        TextView textView;
+        if (convertView == null) {
+            textView = new TextView(context);
+            textView.setTextSize(20);
+            textView.setPadding(8, 8, 8, 8);
+        }
+        else
+            textView = (TextView) convertView;
         textView.setText(getItem(position).toString());
+
         return textView;
     }
 }
