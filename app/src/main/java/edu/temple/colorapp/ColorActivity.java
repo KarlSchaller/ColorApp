@@ -3,6 +3,7 @@ package edu.temple.colorapp;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
+import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.View;
@@ -15,8 +16,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class ColorActivity extends AppCompatActivity {
-
-    ArrayList<String> colors = new ArrayList<>();
+    
     ConstraintLayout layout;
     Spinner spinner;
 
@@ -34,6 +34,7 @@ public class ColorActivity extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 layout.setBackgroundColor(((ColorDrawable)view.getBackground()).getColor());
+                view.setBackgroundColor(Color.WHITE);
             }
 
             @Override
