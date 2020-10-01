@@ -25,13 +25,18 @@ public class ColorActivity extends AppCompatActivity {
         populateArrayList();
 
         spinner = findViewById(R.id.spinner);
-        ColorAdapter adapter = new ColorAdapter(this, colors);
+        ColorAdapter adapter = new ColorAdapter(this);
         spinner.setAdapter(adapter);
 
-        spinner.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 populateArrayList();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
             }
         });
     }

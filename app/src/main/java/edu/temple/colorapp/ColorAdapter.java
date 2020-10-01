@@ -16,10 +16,22 @@ public class ColorAdapter extends BaseAdapter {
     Context context;
     private ArrayList<String> colors;
 
-    public ColorAdapter(Context context, ArrayList<String> colors) {
+    public ColorAdapter(Context context) {
         super();
+        colors = new ArrayList<>();
         this.context = context;
-        this.colors = colors;
+        this.colors.add("White");
+//        this.colors.add("Black");
+        this.colors.add("Blue");
+        this.colors.add("Cyan");
+        this.colors.add("Dark Gray");
+        this.colors.add("Gray");
+        this.colors.add("Green");
+        this.colors.add("Light Gray");
+        this.colors.add("Magenta");
+        this.colors.add("Red");
+//        this.colors.add("Transparent");
+        this.colors.add("Yellow");
     }
 
     @Override
@@ -49,6 +61,38 @@ public class ColorAdapter extends BaseAdapter {
             textView = (TextView) convertView;
         textView.setText(getItem(position).toString());
 
+        if (textView.getText().equals("White"))
+            textView.setBackgroundColor(Color.WHITE);
+//        else if (textView.getText().equals("Black"))
+//            textView.setBackgroundColor(Color.BLACK);
+        else if (textView.getText().equals("Blue"))
+            textView.setBackgroundColor(Color.BLUE);
+        else if (textView.getText().equals("Cyan"))
+            textView.setBackgroundColor(Color.CYAN);
+        else if (textView.getText().equals("Dark Gray"))
+            textView.setBackgroundColor(Color.DKGRAY);
+        else if (textView.getText().equals("Gray"))
+            textView.setBackgroundColor(Color.GRAY);
+        else if (textView.getText().equals("Green"))
+            textView.setBackgroundColor(Color.GREEN);
+        else if (textView.getText().equals("Light Gray"))
+            textView.setBackgroundColor(Color.LTGRAY);
+        else if (textView.getText().equals("Magenta"))
+            textView.setBackgroundColor(Color.MAGENTA);
+        else if (textView.getText().equals("Red"))
+            textView.setBackgroundColor(Color.RED);
+//        else if (textView.getText().equals("Transparent"))
+//            textView.setBackgroundColor(Color.TRANSPARENT);
+        else if (textView.getText().equals("Yellow"))
+            textView.setBackgroundColor(Color.YELLOW);
+
         return textView;
     }
+
+//    @Override
+//    public View getDropDownView(int position, View convertView, ViewGroup parent) {
+//        View v = getView(position, convertView, parent);
+//        v.setBackgroundColor(Color.WHITE);
+//        return v;
+//    }
 }
