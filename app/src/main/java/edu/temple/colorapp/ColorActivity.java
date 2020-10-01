@@ -1,7 +1,9 @@
 package edu.temple.colorapp;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -15,6 +17,7 @@ import java.util.Arrays;
 public class ColorActivity extends AppCompatActivity {
 
     ArrayList<String> colors = new ArrayList<>();
+    ConstraintLayout layout;
     Spinner spinner;
 
     @Override
@@ -22,8 +25,7 @@ public class ColorActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        populateArrayList();
-
+        layout = findViewById(R.id.layout);
         spinner = findViewById(R.id.spinner);
         ColorAdapter adapter = new ColorAdapter(this);
         spinner.setAdapter(adapter);
@@ -31,7 +33,7 @@ public class ColorActivity extends AppCompatActivity {
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                populateArrayList();
+                layout.setBackgroundColor(((ColorDrawable)view.getBackground()).getColor());
             }
 
             @Override
@@ -39,11 +41,5 @@ public class ColorActivity extends AppCompatActivity {
 
             }
         });
-    }
-
-    private void populateArrayList() {
-        colors.add("Red");
-        colors.add("Blue");
-        colors.add("Green");
     }
 }
